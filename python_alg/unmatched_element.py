@@ -14,7 +14,7 @@ the elements at indexes 4 and 6 have value 9,
 the element at index 5 has value 7 and is unpaired.
 '''
 
-def solution(A):
+def unmatched_element(A):
     A_counts = {}
     for i in range(len(A)):
         if A[i] in A_counts:
