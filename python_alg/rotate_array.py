@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+
+'''
+Rotate the Array A K times to the right
+rotote([2,3,4], 2) = [3,4,2]
+'''
 def rotate(A, K):
     N = len(A)
     i = 0
@@ -9,4 +14,4 @@ def rotate(A, K):
         A[new_pos] = A_dict[i]
     
     return A
-print(rotate([3,4,5,6,7,8,8], 9))
+print(rotate([2,3,4], 2))
