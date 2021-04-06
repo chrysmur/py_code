@@ -5,6 +5,7 @@
 
 '''
 cansum(5, [4,3,2,5]) => true  [5] or [2,3]
+Can you do it? yes or no--> it is a DECISION Problem
 '''
 def cansum(target, array, store={}):
     if target == 0: 
