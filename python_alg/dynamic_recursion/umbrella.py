@@ -7,7 +7,8 @@ If there's no solution, return -1.
 
 '''
 
-def umbrella_count(people, umbrellas):
+def umbrella_count(people, umbrellas, store={}):
+    if people in store: return store[people]
     if people < 0: return None
     if people == 0: return []
 
@@ -15,9 +16,10 @@ def umbrella_count(people, umbrellas):
 
     for umb in umbrellas:
         remainder =  people  -  umb
-        result =  umbrella_count(remainder, umbrellas)
+        result =  umbrella_count(remainder, umbrellas, store)
         if result is not None:
             combination =[*result, umb]
+            store[people] = combination
             if not shortest or (len(shortest) > len(combination)):
                 shortest = combination
 
@@ -25,9 +27,10 @@ def umbrella_count(people, umbrellas):
 
 def solution(people, umbrellas):
     count = umbrella_count(people, umbrellas)
+    print(count)
     if count: return len(count);  
     else: return  -1
 
 
-print(solution(10, []))
+print(solution(99, [1,2,5,25]))
 
