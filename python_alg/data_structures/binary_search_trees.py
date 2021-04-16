@@ -7,6 +7,27 @@ class Node:
         self.right = None
 
 
+#create a stack
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, value):
+        self.items.append(value)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def peek(self):
+        return self.items[-1]
+
+    def __len__(self):
+        return len(self.items)
+
 #Creating a queue
 class Queue:
     def __init__(self):
@@ -113,14 +134,13 @@ class BST:
         # append the first value to que
         queue.enqueue(start)
         while len(queue) > 0:
-            #Check if the current value has the same value as the level, see if you need to add a new line
-            current_node = queue.peek()
-            if current_node.level > cur_level:
+            # Dequeue a node to handle it
+            node = queue.dequeue() 
+            #Check if the current node has the same value as the cur_level, see if you need to add a new line
+            if node.level > cur_level:
                 traversal += "\n"
                 cur_level += 1 # increment the level because the current value is a level lower than the current_level held
-            traversal +=str(queue.peek().value) + " "
-            node = queue.dequeue() # once we handle a node/value, we remove it from the queue
-
+            traversal +=str(node.value) + " "
             if node.left:
                 nextnode = node.left
                 nextnode.level = cur_level + 1
@@ -131,7 +151,6 @@ class BST:
                 queue.enqueue(nextnode)
         return traversal
 
-         
     def height(self, start):
         if start is None:
             return -1
@@ -139,15 +158,41 @@ class BST:
         right = self.height(start.right)
         
         return 1 + max(left, right)
+         
+    def reversal_level_orderT(self, start):
+        if start is None:
+            return
+        queue = Queue()
+        stack = Stack()
+        queue.enqueue(start)
+
+        while len(queue) > 0:
+            node = queue.dequeue()
+            stack.push(node)
+
+            if node.right:
+                queue.enqueue(node.right)
+            if node.left:
+                queue.enqueue(node.right)
+
+        while len(stack) > 0:
+            node = stack.pop()
+            print(node.value)
+        
+
+
+
 
 
 bst = BST()
-bst.insert(10)
+bst.insert(1)
+bst.insert(2)
+bst.insert(3)
+bst.insert(4)
 bst.insert(5)
-bst.insert(15)
-bst.insert(8)
-bst.level_orderT(bst.root)
-print(bst.height(bst.root))
-print(bst.level_listT(bst.root))
+# bst.level_orderT(bst.root)
+# print(bst.height(bst.root))
+# print(bst.level_listT(bst.root))
+bst.reversal_level_orderT(bst.root)
 
 
