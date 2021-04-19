@@ -34,7 +34,7 @@ def isperm2(str1, str2):
     d = dict()
     for i in str1:
         if i in d:
-            d[i] -= 1
+            d[i] += 1
         else:
             d[i] = 1
     for i in str2:
