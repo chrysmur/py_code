@@ -63,3 +63,22 @@ def solution(A):
         min_diff = min(min_diff, diff)
         i += 1
     return min_diff
+
+# Pythonic way
+from itertools import accumulate
+
+def solution2(A):
+    sum_forward = list(accumulate(A))
+    sum_reverse = list(accumulate(A[::-1]))[::-1]
+    print(sum_reverse, sum_forward)
+    min_diff = sum_forward[-1]
+    i = 0
+    while i < len(A)-1:
+        diff = sum_forward[i] - sum_reverse[i+1]
+        min_diff = min(min_diff, abs(diff))
+        i += 1
+                   
+    return min_diff
+  
+
+print(solution2([3,1,2,4,3]))

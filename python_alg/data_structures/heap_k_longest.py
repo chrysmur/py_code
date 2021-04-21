@@ -8,6 +8,8 @@ strings.
 import heapq
 def top_k(k, stream):
     # compare entries by length
+    if len(stream) < k:
+        return
     min_heap = [(len(s), s) for s in itertools.islice(stream, k)]
     heapq.heapify(min_heap)
 
