@@ -16,7 +16,11 @@ def product(x,y, store={}):
 
 # iterative soln:
 def product_it(x, y):
-    
+    if y == 1:
+        return x
+    if x == 0 or y == 0:
+        return 0 
+        
     prod = 0
     for i in range(y):
         prod += x

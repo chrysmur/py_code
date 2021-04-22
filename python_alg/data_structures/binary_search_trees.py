@@ -158,7 +158,7 @@ class BST:
         right = self.height(start.right)
         
         return 1 + max(left, right)
-         
+
     def reversal_level_orderT(self, start):
         if start is None:
             return
@@ -178,7 +178,27 @@ class BST:
         while len(stack) > 0:
             node = stack.pop()
             print(node.value)
-        
+
+    
+    def size(self, start):
+        # the size is the number of all nodes
+        if start is None:
+            return
+        stack = Stack()
+        stack.push(self.root)
+
+        size = 1
+        while stack:
+            node = stack.pop()
+            if node.left:
+                size += 1
+                stack.push(node.left)
+            if node.right:
+                size += 1
+                stack.push(node.right)
+        return size
+
+
 
 
 
@@ -193,6 +213,6 @@ bst.insert(5)
 # bst.level_orderT(bst.root)
 # print(bst.height(bst.root))
 # print(bst.level_listT(bst.root))
-bst.reversal_level_orderT(bst.root)
+print(bst.size(bst.root))
 
 

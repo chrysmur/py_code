@@ -10,4 +10,4 @@ def reverse(array):
         array[i], array[r_i] = array[r_i], array[i]
     return array
 
-print(reverse([1,2,3]))
+print(reverse([3,3,3,4]))

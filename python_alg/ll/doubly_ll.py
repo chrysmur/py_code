@@ -30,7 +30,7 @@ class LL:
             new_node.next = self.head
             self.head.prev = new_node        
             self.head = new_node
-       
+        
     def print_nodes(self):
         if not self.head:
             print(None)
@@ -41,10 +41,10 @@ class LL:
             cur =  cur.next
 
 
-ll = LL()
+ll = LL(0)
 ll.append(1)
 ll.append(2)
 ll.append(3)
 ll.prepend(4)
-print()
+print(ll.head.next.data)
 ll.print_nodes()
