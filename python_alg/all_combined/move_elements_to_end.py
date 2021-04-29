@@ -15,7 +15,7 @@ def moveElementToEnd(array, toMove):
 			left = array[:i]
 			right = array[i+1:]
 			right.append(toMove)
-			array = left + right
+			array = left + right #O(N) because we are appending elements R 
 			j -= 1
 		else:
 			i += 1

@@ -1,5 +1,5 @@
 '''
-A function that takes in any two none empty arrays of integers, find the numbers from each array whose absolute sum is closest to zero
+A function that takes in any two none empty arrays of integers, find the numbers from each array whose absolute difference is closest to zero
 '''
 #O(NLogN)
 def smallestDifference(arrayOne, arrayTwo):
