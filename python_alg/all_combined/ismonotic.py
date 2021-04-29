@@ -13,10 +13,12 @@ def isMonotonic(array):
 	non_inc = None
 	for i in range(len(array)-1):
 		if array[i] < array[i+1]:
-			non_dec = True
+			non_dec = True # if we encount
 		elif array[i] > array[i+1]:
 			non_inc = True
 		
 	if non_dec and non_inc:
 			return False
 	return True
+
+print(isMonotonic([5,5,4,3,2]))
