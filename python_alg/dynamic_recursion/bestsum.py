@@ -28,6 +28,8 @@ def bestsummemo(target, numbers, store={}):
 
     shortest  = None
     for num in numbers:
+        if num < 0:
+            return "Invalid Input"
         remainder = target - num
         result = bestsummemo(remainder, numbers, store)
         if result is not None:
@@ -38,4 +40,4 @@ def bestsummemo(target, numbers, store={}):
     return shortest
 
 
-print(bestsummemo(99, [1,2,5,25]))
+print(bestsummemo(15, [7,10,16,-1]))
